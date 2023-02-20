@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key? key, required this.setLocale}) : super(key: key);
+import 'package:localizator/blocs/localization_bloc.dart';
 
-  final Function(Locale) setLocale;
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  late LocalizationBloc _localizationBloc;
+
+  @override
+  void initState() {
+    _localizationBloc = BlocProvider.of<LocalizationBloc>(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
@@ -38,7 +47,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ],
               onChanged: (value) {
-                widget.setLocale(value!);
+                _localizationBloc.updateLocale(value!);
               },
             ),
           ],

@@ -37,6 +37,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  flutter_bloc: ^8.1.2
+  country_icons: ^2.0.2
 
 dev_dependencies:
   flutter_test:
