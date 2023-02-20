@@ -23,13 +23,15 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget _buildLanguageSelection(BuildContext context) {
-    return ListTile(
-      title: Text(AppLocalizations.of(context)!.languageSelectionScreenTitle),
-      subtitle: Text(AppLocalizations.of(context)!.languageName),
-      trailing: const Icon(Icons.arrow_forward_ios),
+    return InkWell(
       onTap: () {
         Navigator.pushNamed(context, LanguageSelectionScreen.routeName);
       },
+      child: ListTile(
+        title: Text(AppLocalizations.of(context)!.languageSelectionScreenTitle),
+        subtitle: Text(AppLocalizations.of(context)!.languageName),
+        trailing: const Icon(Icons.arrow_forward_ios),
+      ),
     );
   }
 }

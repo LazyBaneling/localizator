@@ -1,8 +1,9 @@
 {
   "greeting": "Hello! How are you doing?",
   "settingsScreenTitle": "Settings",
-  "indexScreenTitle": "Localization app demo",
+  "drawerTitle": "Localization app",
   "languageSelectionScreenTitle": "Language",
   "languageName": "English",
-  "menu": "Menu"
+  "menu": "Menu",
+  "appName": "Localizator"
 }

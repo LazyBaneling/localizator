@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:emoji_flag_converter/emoji_flag_converter.dart';
 
 import 'package:localizator/blocs/localization_bloc.dart';
 import 'package:localizator/localization/locales.dart';
@@ -26,12 +27,18 @@ class LanguageSelectionScreen extends StatelessWidget {
   }
 
   Widget _buildLanguageOption(BuildContext context, LocalizationBloc bloc, Locale locale) {
-    return ListTile(
-      title: Text(locale.languageCode),
+    return InkWell(
       onTap: () {
         bloc.updateLocale(locale);
-        // Navigator.pop(context);
+        Navigator.pop(context);
       },
+      child: ListTile(
+        title: Text(Locales.getLanguage(locale)),
+        trailing: Text(
+          EmojiConverter.fromAlpha2CountryCode(locale.countryCode ?? Locales.eng.countryCode!),
+          style: const TextStyle(fontSize: 24),
+        ),
+      ),
     );
   }
 }

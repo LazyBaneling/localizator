@@ -32,6 +32,8 @@ class MyApp extends StatelessWidget {
             supportedLocales: Locales.locales,
             home: const IndexScreen(),
             onGenerateRoute: router.Router.generateRoute,
+            theme: ThemeData.dark(),
+            debugShowCheckedModeBanner: false,
           );
         },
       ),
