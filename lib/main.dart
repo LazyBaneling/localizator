@@ -4,7 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:localizator/blocs/localization_bloc.dart';
-import 'package:localizator/welcome_screen.dart';
+import 'package:localizator/localization/locales.dart';
+import 'package:localizator/screens/index_screen.dart';
+import 'package:localizator/routing/router.dart' as router;
 
 void main() {
   runApp(const MyApp());
@@ -27,11 +29,9 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            supportedLocales: const [
-              Locale('en'),
-              Locale('es'),
-            ],
-            home: const WelcomeScreen(),
+            supportedLocales: Locales.locales,
+            home: const IndexScreen(),
+            onGenerateRoute: router.Router.generateRoute,
           );
         },
       ),
